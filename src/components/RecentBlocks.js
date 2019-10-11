@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import EOSIOClient from '../controller/EOSIOClient';
 
 class RecentBlocks extends Component {
   initialState = {
@@ -8,18 +9,32 @@ class RecentBlocks extends Component {
   constructor(props) {
     super(props);
     this.state = { ...this.initialState };
+    this.blockClient = new EOSIOClient();
   }
 
   loadRecentBlocks = () => {
-    const blocks = Array(10)
-      .fill()
-      .map(() => ({
-        id: this.getRandomNumber(),
-      }));
+    // Clear current blocks
+    this.setState({ blocks: [] });
 
-    this.setState({
-      blocks,
-    });
+    let chain = this.blockClient.getHeadBlock();
+    const addBlock = block => {
+      this.addBlock(block);
+
+      return this.blockClient.getPrevBlock(block);
+    };
+    const addToChain = () => {
+      chain = chain.then(addBlock);
+    };
+
+    Array(9)
+      .fill()
+      .forEach(addToChain);
+  };
+
+  addBlock = block => {
+    this.setState(state => ({
+      blocks: [...state.blocks, block],
+    }));
   };
 
   getRandomNumber = () => {

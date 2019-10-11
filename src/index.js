@@ -1,8 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { polyfill } from 'es6-promise';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+// Polyfill ES6 Promise
+polyfill();
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
