@@ -74,9 +74,11 @@ class RecentBlocks extends Component {
           onClick={toggleActive}
           onKeyDown={toggleActive}
         >
-          <h3>ID: {block.id}</h3>
-          <h5>Timestamp: {block.timestamp}</h5>
-          <h5>Transactions: {block.num_transactions}</h5>
+          <div className="header">
+            <h3>ID: {block.id}</h3>
+            <h5>Timestamp: {block.timestamp}</h5>
+            <h5>Transactions: {block.num_transactions}</h5>
+          </div>
           <div className="raw">
             <h5>Raw content</h5>
             <pre>{block.raw}</pre>
