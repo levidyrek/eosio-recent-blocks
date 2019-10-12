@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import EOSIOClient from '../controller/EOSIOClient';
+import '../stylesheets/RecentBlocks.css';
 
 class RecentBlocks extends Component {
   initialState = {
+    activeBlocks: {},
     blocks: [],
   };
 
@@ -14,7 +16,7 @@ class RecentBlocks extends Component {
 
   loadRecentBlocks = () => {
     // Clear current blocks
-    this.setState({ blocks: [] });
+    this.setState({ activeBlocks: {}, blocks: [] });
 
     let chain = this.blockClient.getHeadBlock();
     const addBlock = block => {
@@ -43,14 +45,45 @@ class RecentBlocks extends Component {
     return Math.floor(Math.random() * (max - min)) + min;
   };
 
-  render() {
-    const { blocks } = this.state;
+  toggleActive = blockId => {
+    this.setState(state => {
+      const activeBlocks = { ...state.activeBlocks };
+      const active = !activeBlocks[blockId];
+      activeBlocks[blockId] = active;
 
-    const blockElems = blocks.map(block => (
-      <div key={block.id}>
-        <h3>ID: {block.id}</h3>
-      </div>
-    ));
+      return { activeBlocks };
+    });
+  };
+
+  render() {
+    const { activeBlocks, blocks } = this.state;
+
+    const blockElems = blocks.map(block => {
+      const active = activeBlocks[block.id];
+      const className = active ? 'active' : '';
+      const toggleActive = () => {
+        this.toggleActive(block.id);
+      };
+
+      return (
+        <div
+          key={block.id}
+          role="button"
+          tabIndex={0}
+          className={`block ${className}`}
+          onClick={toggleActive}
+          onKeyDown={toggleActive}
+        >
+          <h3>ID: {block.id}</h3>
+          <h5>Timestamp: {block.timestamp}</h5>
+          <h5>Transactions: {block.num_transactions}</h5>
+          <div className="raw">
+            <h5>Raw content</h5>
+            <pre>{block.raw}</pre>
+          </div>
+        </div>
+      );
+    });
 
     return (
       <div className="RecentBlocks">

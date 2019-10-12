@@ -16,5 +16,8 @@ export default class EOSIOClient {
     this.rpc.get_block(blockId).then(result => ({
       id: result.id,
       previous: result.previous,
+      num_transactions: result.transactions.length,
+      raw: JSON.stringify(result, null, 2), // Pretty print raw JSON with 2 spaces
+      timestamp: result.timestamp,
     }));
 }
