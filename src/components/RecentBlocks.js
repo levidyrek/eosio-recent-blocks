@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EOSIOClient from '../controller/EOSIOClient';
+import { SPACE_KEY_CODE } from '../constants';
 import '../stylesheets/RecentBlocks.css';
 
 class RecentBlocks extends Component {
@@ -65,16 +66,23 @@ class RecentBlocks extends Component {
         this.toggleActive(block.id);
       };
 
+      // Expand block if space key is pressed
+      const toggleActiveOnKey = e => {
+        if (e.which === SPACE_KEY_CODE) {
+          e.preventDefault();
+          toggleActive();
+        }
+      };
+
       return (
-        <div
-          key={block.id}
-          role="button"
-          tabIndex={0}
-          className={`block ${className}`}
-          onClick={toggleActive}
-          onKeyDown={toggleActive}
-        >
-          <div className="header">
+        <div key={block.id} className={`block ${className}`}>
+          <div
+            className="header"
+            tabIndex={0}
+            role="button"
+            onClick={toggleActive}
+            onKeyDown={toggleActiveOnKey}
+          >
             <h3>ID: {block.id}</h3>
             <h5>Timestamp: {block.timestamp}</h5>
             <h5>Transactions: {block.num_transactions}</h5>

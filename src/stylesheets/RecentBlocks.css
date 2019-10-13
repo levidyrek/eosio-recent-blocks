@@ -10,9 +10,9 @@
 }
 
 /*
-* Add a background if the block is hovered or clicked on
+* Add a background if the block is hovered, clicked on, or focused
 */
-.block.active, .block:hover {
+.block.active, .block:hover, .block .header:focus {
   background-color: #ccc;
 }
 
