@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render component 1`] = `
+<div
+  className="block "
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Toggle active 1`] = `
+<div
+  className="block "
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Toggle active 2`] = `
+<div
+  className="block active"
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Toggle active on keydown 1`] = `
+<div
+  className="block "
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Toggle active on keydown 2`] = `
+<div
+  className="block active"
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Toggle active on keydown wrong key 1`] = `
+<div
+  className="block "
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
+
+exports[`Toggle active on keydown wrong key 2`] = `
+<div
+  className="block "
+>
+  <div
+    className="header"
+    onClick={[Function]}
+    onKeyDown={[Function]}
+    role="button"
+    tabIndex={0}
+  >
+    <h3>
+      ID: 
+      050bd265eba5e0297f2c7e00d299c6f8b492ac184060785fad5576c2afa3e0e7
+    </h3>
+    <h5>
+      Timestamp: 
+      2019-10-15T10:48:17.000
+    </h5>
+    <h5>
+      Transactions: 
+      43
+    </h5>
+  </div>
+  <div
+    className="raw"
+  >
+    <h5>
+      Raw content
+    </h5>
+    <pre>
+      {"timestamp": "2019-10-15T10:48:17.000"}
+    </pre>
+  </div>
+</div>
+`;
