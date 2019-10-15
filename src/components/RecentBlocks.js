@@ -1,27 +1,20 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import Block from './Block';
 
-class RecentBlocks extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { ...this.initialState };
-  }
+function RecentBlocks(props) {
+  const { blocks, isFetchingBlocks, reloadRecentBlocks } = props;
 
-  render() {
-    const { blocks, isFetchingBlocks, reloadRecentBlocks } = this.props;
+  const blockElems = blocks.map(block => <Block key={block.id} block={block} />);
 
-    const blockElems = blocks.map(block => <Block key={block.id} block={block} />);
-
-    return (
-      <div className="RecentBlocks">
-        <button type="button" onClick={reloadRecentBlocks} disabled={isFetchingBlocks}>
-          Load
-        </button>
-        <div className="blockList">{blockElems}</div>
-      </div>
-    );
-  }
+  return (
+    <div className="RecentBlocks">
+      <button type="button" onClick={reloadRecentBlocks} disabled={isFetchingBlocks}>
+        Load
+      </button>
+      <div className="blockList">{blockElems}</div>
+    </div>
+  );
 }
 
 RecentBlocks.propTypes = {
