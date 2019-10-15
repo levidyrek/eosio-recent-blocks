@@ -1,52 +1,19 @@
 import React, { Component } from 'react';
-import EOSIOClient from '../controller/EOSIOClient';
+import PropTypes from 'prop-types';
 import { SPACE_KEY_CODE } from '../constants';
 import '../stylesheets/RecentBlocks.css';
 
 class RecentBlocks extends Component {
   initialState = {
     activeBlocks: {},
-    blocks: [],
   };
 
   constructor(props) {
     super(props);
     this.state = { ...this.initialState };
-    this.blockClient = new EOSIOClient();
   }
 
-  loadRecentBlocks = () => {
-    // Clear current blocks
-    this.setState({ activeBlocks: {}, blocks: [] });
-
-    let chain = this.blockClient.getHeadBlock();
-    const addBlock = block => {
-      this.addBlock(block);
-
-      return this.blockClient.getPrevBlock(block);
-    };
-    const addToChain = () => {
-      chain = chain.then(addBlock);
-    };
-
-    Array(9)
-      .fill()
-      .forEach(addToChain);
-  };
-
-  addBlock = block => {
-    this.setState(state => ({
-      blocks: [...state.blocks, block],
-    }));
-  };
-
-  getRandomNumber = () => {
-    const min = 1;
-    const max = 1001;
-    return Math.floor(Math.random() * (max - min)) + min;
-  };
-
-  toggleActive = blockId => {
+  toggleBlockActive = blockId => {
     this.setState(state => {
       const activeBlocks = { ...state.activeBlocks };
       const active = !activeBlocks[blockId];
@@ -57,13 +24,14 @@ class RecentBlocks extends Component {
   };
 
   render() {
-    const { activeBlocks, blocks } = this.state;
+    const { activeBlocks } = this.state;
+    const { blocks, isFetchingBlocks, reloadRecentBlocks } = this.props;
 
     const blockElems = blocks.map(block => {
       const active = activeBlocks[block.id];
       const className = active ? 'active' : '';
       const toggleActive = () => {
-        this.toggleActive(block.id);
+        this.toggleBlockActive(block.id);
       };
 
       // Expand block if space key is pressed
@@ -97,7 +65,7 @@ class RecentBlocks extends Component {
 
     return (
       <div className="RecentBlocks">
-        <button type="button" onClick={this.loadRecentBlocks}>
+        <button type="button" onClick={reloadRecentBlocks} disabled={isFetchingBlocks}>
           Load
         </button>
         <div className="blockList">{blockElems}</div>
@@ -105,5 +73,18 @@ class RecentBlocks extends Component {
     );
   }
 }
+
+RecentBlocks.propTypes = {
+  blocks: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string.isRequired,
+      num_transactions: PropTypes.number.isRequired,
+      raw: PropTypes.string.isRequired,
+      timestamp: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  isFetchingBlocks: PropTypes.bool.isRequired,
+  reloadRecentBlocks: PropTypes.func.isRequired,
+};
 
 export default RecentBlocks;

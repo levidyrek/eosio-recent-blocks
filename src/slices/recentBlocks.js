@@ -2,94 +2,73 @@
 import { createSlice } from 'redux-starter-kit';
 import EOSIOClient from '../controller/EOSIOClient';
 import { NUM_RECENT_BLOCKS } from '../constants';
-import { createRandomIds } from '../utils';
 
-const addBlockReducer = (state, action) => {
-  const block = action.payload;
-  state.blocks[block.id] = block;
+const beginFetchReducer = state => {
+  state.fetching = true;
+  state.blocks = [];
 };
 
-const clearRecentBlocksReducer = () => ({ recents: {} });
+const receiveBlockReducer = (state, action) => {
+  const block = action.payload;
+  state.blocks.push(block);
+};
 
-const updateRecentBlocksReducer = (state, action) => ({ recents: action.payload });
-
-/**
- * Replaces a block object matching the given id in recents with a new object.
- * If a block with the given id is not found, nothing is updated.
- *
- * @param {array} state current redux state
- * @param {object} action action with payload containing a recent block id
- */
-const replaceRecentBlockReducer = (state, action) => {
-  const { recents } = state;
-  const { id, data } = action.payload;
-  const index = recents.findIndex(recent => recent.id === id);
-
-  if (index !== -1) {
-    recents.splice(index, 1, data);
-  }
+const endFetchReducer = state => {
+  state.fetching = false;
 };
 
 const recentBlocksSlice = createSlice({
   slice: 'recentBlocks',
   initialState: {
-    // The key-value block "cache"
-    blocks: {},
-    // List of objects referencing the most recent blocks from the cache
-    recents: [],
+    // List of the most recent blocks
+    blocks: [],
+    // Indicates whether new blocks are being fetched
+    fetching: false,
   },
   reducers: {
-    addBlock: addBlockReducer,
-    clearRecentBlocks: clearRecentBlocksReducer,
-    replaceRecentBlock: replaceRecentBlockReducer,
-    updateRecentBlocks: updateRecentBlocksReducer,
+    beginFetch: beginFetchReducer,
+    endFetch: endFetchReducer,
+    receiveBlock: receiveBlockReducer,
   },
 });
 
-const {
-  addBlock,
-  clearRecentBlocks,
-  replaceRecentBlock,
-  updateRecentBlocks,
-} = recentBlocksSlice.actions;
+const { beginFetch, endFetch, receiveBlock } = recentBlocksSlice.actions;
 
 export default recentBlocksSlice.reducer;
+
+/**
+ * Redux Thunk that reloads recent blocks.
+ */
+export const reloadRecentBlocks = () => {
+  return dispatch => reloadRecentBlocksAction(dispatch);
+};
 
 /**
  * Reloads the configured number of most recent blocks.
  *
  * @param {function} dispatch the redux dispatch function
  */
-export const reloadRecentBlocks = dispatch => {
-  dispatch(clearRecentBlocks());
-
-  // Use objects with random IDs for placeholder blocks while the actual block data is fetched.
-  // Adding these synchronously prevents random asynchronous behavior.
-  const placeholderIds = createRandomIds(NUM_RECENT_BLOCKS);
-  const placeholderBlocks = createPlaceholderBlocks(placeholderIds);
-  dispatch(updateRecentBlocks(placeholderBlocks));
+const reloadRecentBlocksAction = dispatch => {
+  dispatch(beginFetch());
 
   const addRecentBlock = block => {
-    dispatch(addBlock(block));
-    dispatch(replaceRecentBlock({ id: placeholderIds.shift(), data: block }));
+    dispatch(receiveBlock(block));
   };
-  fetchRecentBlocks(addRecentBlock);
+  const completeFetch = () => {
+    dispatch(endFetch());
+  };
+  fetchRecentBlocks(addRecentBlock, completeFetch);
 };
-
-const createPlaceholderBlocks = ids =>
-  ids.map(id => ({
-    fetching: true,
-    id,
-  }));
 
 /**
  * Fetches the configured number of most recent blocks. Each block is passed to the given
  * callback when it is fetched.
  *
- * @param {function} blockFetchedCallback callback that is passed a block's data when each
+ * @param {function} receive callback that is passed a block's data when each
  * block is fetched
+ * @param {function} complete callback that is called when all recent blocks have been fetched
  */
-const fetchRecentBlocks = blockFetchedCallback => {
+const fetchRecentBlocks = (receive, complete) => {
   const blockClient = new EOSIOClient();
 
   // Begin the promise chain by fetching the head block
@@ -99,7 +78,7 @@ const fetchRecentBlocks = blockFetchedCallback => {
   // the client
   const addToChain = () => {
     chain = chain.then(block => {
-      blockFetchedCallback(block);
+      receive(block);
       return blockClient.getPrevBlock(block);
     });
   };
@@ -110,20 +89,8 @@ const fetchRecentBlocks = blockFetchedCallback => {
     .forEach(addToChain);
 
   // Handle the arrival of the last block
-  chain.then(blockFetchedCallback);
-};
-
-/**
- * Maps the recentBlocks state to a list of recent blocks.
- *
- * @param {object} state the redux recentBlocks state
- */
-export const getRecentBlocks = state => {
-  const { blocks, recents } = state;
-  return recents.map(recent => {
-    if (!recent.fetching) {
-      return blocks[recent.id];
-    }
-    return recent;
+  chain.then(block => {
+    receive(block);
+    complete();
   });
 };
