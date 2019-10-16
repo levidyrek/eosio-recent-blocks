@@ -5,6 +5,7 @@ import RecentBlocks from '../components/RecentBlocks';
 const mapStateToProps = state => ({
   blocks: state.recentBlocks.blocks,
   isFetchingBlocks: state.recentBlocks.fetching,
+  fetchError: state.recentBlocks.error,
 });
 
 const mapDispatchToProps = dispatch => ({

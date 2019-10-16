@@ -1,5 +1,369 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Fetch error 1`] = `
+<div
+  className="RecentBlocks"
+>
+  <button
+    disabled={false}
+    onClick={[MockFunction]}
+    type="button"
+  >
+    Load
+  </button>
+  <p
+    className="error"
+  >
+    Error fetching: 
+    Network request failed.
+  </p>
+  <div
+    className="blockList"
+  >
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          1
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.001
+        </h5>
+        <h5>
+          Transactions: 
+          1
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.001"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          2
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.002
+        </h5>
+        <h5>
+          Transactions: 
+          2
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.002"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          3
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.003
+        </h5>
+        <h5>
+          Transactions: 
+          3
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.003"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          4
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.004
+        </h5>
+        <h5>
+          Transactions: 
+          4
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.004"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          5
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.005
+        </h5>
+        <h5>
+          Transactions: 
+          5
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.005"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          6
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.006
+        </h5>
+        <h5>
+          Transactions: 
+          6
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.006"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          7
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.007
+        </h5>
+        <h5>
+          Transactions: 
+          7
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.007"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          8
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.008
+        </h5>
+        <h5>
+          Transactions: 
+          8
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.008"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          9
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.009
+        </h5>
+        <h5>
+          Transactions: 
+          9
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.009"}
+        </pre>
+      </div>
+    </div>
+    <div
+      className="block "
+    >
+      <div
+        className="header"
+        onClick={[Function]}
+        onKeyDown={[Function]}
+        role="button"
+        tabIndex={0}
+      >
+        <h3>
+          ID: 
+          10
+        </h3>
+        <h5>
+          Timestamp: 
+          2019-10-15T10:48:17.0010
+        </h5>
+        <h5>
+          Transactions: 
+          10
+        </h5>
+      </div>
+      <div
+        className="raw"
+      >
+        <h5>
+          Raw content
+        </h5>
+        <pre>
+          {"timestamp": "2019-10-15T10:48:17.0010"}
+        </pre>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
 exports[`Fetching blocks 1`] = `
 <div
   className="RecentBlocks"
@@ -11,6 +375,7 @@ exports[`Fetching blocks 1`] = `
   >
     Load
   </button>
+  
   <div
     className="blockList"
   >
@@ -369,6 +734,7 @@ exports[`Render component 1`] = `
   >
     Load
   </button>
+  
   <div
     className="blockList"
   >

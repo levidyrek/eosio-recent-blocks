@@ -47,3 +47,18 @@ test('Click load button', () => {
   component.find('button').simulate('click');
   expect(reloadMock.mock.calls.length).toBe(1);
 });
+
+test('Fetch error', () => {
+  const reloadMock = jest.fn();
+  const fetchError = 'Network request failed.';
+  const component = renderer.create(
+    <RecentBlocks
+      blocks={getBlocks()}
+      isFetchingBlocks={false}
+      fetchError={fetchError}
+      reloadRecentBlocks={reloadMock}
+    />
+  );
+  const tree = component.toJSON();
+  expect(tree).toMatchSnapshot();
+});
