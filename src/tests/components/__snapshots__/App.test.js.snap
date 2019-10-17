@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Render component 1`] = `
+<div
+  className="App"
+>
+  <h1>
+    EOSIO Recent Blocks
+  </h1>
+  <div
+    className="RecentBlocks"
+  />
+</div>
+`;
