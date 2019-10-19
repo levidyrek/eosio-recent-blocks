@@ -4,7 +4,14 @@ exports[`Render component 1`] = `
 <div
   className="App"
 >
-  <h1>
+  <img
+    alt="EOSIO logo"
+    className="logo"
+    src="logo.png"
+  />
+  <h1
+    className="title"
+  >
     EOSIO Recent Blocks
   </h1>
   <div

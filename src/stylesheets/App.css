@@ -1,0 +1,11 @@
+.App {
+  margin-top: 20px;
+}
+
+.logo, .title {
+  display: inline-block;
+}
+
+.logo {
+  vertical-align: middle;
+}
