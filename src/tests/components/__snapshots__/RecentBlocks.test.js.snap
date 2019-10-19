@@ -5,6 +5,7 @@ exports[`Fetch error 1`] = `
   className="RecentBlocks"
 >
   <button
+    className="load"
     disabled={false}
     onClick={[MockFunction]}
     type="button"
@@ -369,6 +370,7 @@ exports[`Fetching blocks 1`] = `
   className="RecentBlocks"
 >
   <button
+    className="load"
     disabled={true}
     onClick={[MockFunction]}
     type="button"
@@ -728,6 +730,7 @@ exports[`Render component 1`] = `
   className="RecentBlocks"
 >
   <button
+    className="load"
     disabled={false}
     onClick={[MockFunction]}
     type="button"

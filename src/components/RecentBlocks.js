@@ -10,7 +10,12 @@ function RecentBlocks(props) {
 
   return (
     <div className="RecentBlocks">
-      <button type="button" onClick={reloadRecentBlocks} disabled={isFetchingBlocks}>
+      <button
+        className="load"
+        type="button"
+        onClick={reloadRecentBlocks}
+        disabled={isFetchingBlocks}
+      >
         Load
       </button>
       {fetchError && <p className="error">Error fetching: {fetchError}</p>}
