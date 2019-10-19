@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import EOSIOClient from '../../controller/EOSIOClient';
+import EOSIOClient from '../../eosio/EOSIOClient';
 
 jest.mock('eosjs');
 

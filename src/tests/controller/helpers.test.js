@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { fetchRecentBlocks } from '../../controller/helpers';
+import { fetchRecentBlocks } from '../../eosio/helpers';
 import { NUM_RECENT_BLOCKS } from '../../constants';
 
 describe('fetchRecentBlocks', () => {

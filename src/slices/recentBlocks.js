@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 import { createSlice } from 'redux-starter-kit';
-import EOSIOClient from '../controller/EOSIOClient';
-import { fetchRecentBlocks } from '../controller/helpers';
+import EOSIOClient from '../eosio/EOSIOClient';
+import { fetchRecentBlocks } from '../eosio/helpers';
 
 // Reducers are wrapped with immer by default, so state is not actually mutated
 const beginFetchReducer = state => {

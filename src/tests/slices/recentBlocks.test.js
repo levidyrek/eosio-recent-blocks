@@ -9,7 +9,7 @@ import {
   reloadRecentBlocks,
   testables,
 } from '../../slices/recentBlocks';
-import { fetchRecentBlocks } from '../../controller/helpers';
+import { fetchRecentBlocks } from '../../eosio/helpers';
 
 const { beginFetchReducer, endFetchReducer, failFetchReducer, receiveBlockReducer } = testables;
 
@@ -17,8 +17,8 @@ const { beginFetchReducer, endFetchReducer, failFetchReducer, receiveBlockReduce
 const middlewares = [thunk];
 const mockStore = configureMockStore(middlewares);
 
-jest.mock('../../controller/EOSIOClient');
-jest.mock('../../controller/helpers');
+jest.mock('../../eosio/EOSIOClient');
+jest.mock('../../eosio/helpers');
 
 beforeEach(() => {
   jest.clearAllMocks();
