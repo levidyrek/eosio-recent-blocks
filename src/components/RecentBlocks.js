@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Block from './Block';
 import '../stylesheets/RecentBlocks.css';
+import loadingGif from '../loading.gif';
 
 function RecentBlocks(props) {
   const { blocks, fetchError, isFetchingBlocks, reloadRecentBlocks } = props;
@@ -18,6 +19,7 @@ function RecentBlocks(props) {
       >
         Load
       </button>
+      {isFetchingBlocks && <img className="loading" src={loadingGif} alt="Loading" />}
       {fetchError && <p className="error">Error fetching: {fetchError}</p>}
       <div className="blockList">{blockElems}</div>
     </div>

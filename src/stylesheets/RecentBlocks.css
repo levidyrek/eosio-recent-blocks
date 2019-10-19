@@ -6,3 +6,8 @@
   margin-bottom: 20px;
   margin-top: 20px;
 }
+
+.loading {
+  vertical-align: middle;
+  margin-left: 15px;
+}

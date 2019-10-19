@@ -377,6 +377,11 @@ exports[`Fetching blocks 1`] = `
   >
     Load
   </button>
+  <img
+    alt="Loading"
+    className="loading"
+    src="loading.gif"
+  />
   
   <div
     className="blockList"
